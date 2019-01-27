@@ -39,10 +39,6 @@ function playStream(idVideoTag, stream) {
 
 const peer = new Peer({
     key: 'peerjs',
-    host: 'https://streamdem.herokuapp.com/',
-    secure: true,
-    port: 443,
-    config: customConfig
 });
 
 peer.on('open', id => {
