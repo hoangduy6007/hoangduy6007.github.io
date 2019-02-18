@@ -32,7 +32,6 @@ function openStream() {
 function playStream(idVideoTag, stream) {
     const video = document.getElementById(idVideoTag);
     video.srcObject = stream;
-    window.URL.createObjectURL(stream);
     video.play();
 }
 //openStream()
