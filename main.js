@@ -25,13 +25,12 @@ socket.on('DANH_SACH_ONLINE', arrUserInfo => {
 socket.on('DANG_KY_THAT_BAT', () => alert('Vui long chon username khac!'));
 
 function openStream() {
-    const config = { audio: false, video: true };
+    const config = { audio: true, video: true };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
 function playStream(idVideoTag, stream) {
     const video = document.getElementById(idVideoTag);
-    video.window.URL.createObjectURL(stream);
     video.srcObject = stream;
     video.play();
 }
