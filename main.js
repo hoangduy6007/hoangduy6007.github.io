@@ -31,13 +31,13 @@ function openStream() {
 
 function playStream(idVideoTag, stream) {
     const video = document.getElementById(idVideoTag);
-    window.stream = stream;
-  if (window.URL) {
-    video.srcObject = window.URL.createObjectURL(stream);
-  } else {
+    
+    try {
     video.srcObject = stream;
-  }
-  video.play();
+    } catch (error) {
+     video.src = URL.createObjectURL(stream);
+    }
+    video.play();
     //video.srcObject = stream;
     //video.play();
 }
