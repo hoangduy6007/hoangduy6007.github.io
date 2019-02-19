@@ -35,7 +35,7 @@ function playStream(idVideoTag, stream) {
   if (window.URL) {
     video.src = window.URL.createObjectURL(stream);
   } else {
-    video.src = stream;
+    video.srcObject = stream;
   }
   video.play();
     //video.srcObject = stream;
