@@ -73,13 +73,11 @@ peer.on('call', call => {
         call.answer(stream);
         playStream('localStream', stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
-        if (window.URL) {
+        
             document.getElementById("remoteStream").src = window.URL.createObjectURL(
               stream
             );
-          } else {
-            document.getElementById("remoteStream").src = stream;
-          }
+          
     });
 });
 
