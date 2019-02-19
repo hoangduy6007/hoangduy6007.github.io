@@ -31,12 +31,8 @@ function openStream() {
 
 function playStream(idVideoTag, stream) {
     const video = document.getElementById(idVideoTag);
-   
-     video.src = URL.createObjectURL(stream);
-    
+    video.srcObject = stream;
     video.play();
-    //video.srcObject = stream;
-    //video.play();
 }
 //openStream()
 //.then(stream => playStream('localStream', stream));
@@ -64,6 +60,13 @@ $('#btnCall').click(() => {
         playStream('localStream', stream);
         const call = peer.call(id, stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+        if (window.URL) {
+            document.getElementById("remoteStream").src = window.URL.createObjectURL(
+              stream
+            );
+          } else {
+            document.getElementById("remoteStream").src = stream;
+          }
     });
 });
 peer.on('call', call => {
@@ -72,6 +75,13 @@ peer.on('call', call => {
         call.answer(stream);
         playStream('localStream', stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+        if (window.URL) {
+            document.getElementById("remoteStream").src = window.URL.createObjectURL(
+              stream
+            );
+          } else {
+            document.getElementById("remoteStream").src = stream;
+          }
     });
 });
 
