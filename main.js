@@ -71,9 +71,7 @@ peer.on('call', call => {
         playStream('localStream', stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
         
-            document.getElementById("remoteStream").src = window.URL.createObjectURL(
-              stream
-            );
+           
           
     });
 });
