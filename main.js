@@ -68,7 +68,7 @@ peer.on('call', call => {
         call.answer(stream);
         playStream('localStream', stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
-        console.log(Stream);
+        
     });
 });
 
@@ -80,5 +80,6 @@ $('#ulUser').on('click', 'li', function() {
         playStream('localStream', stream);
         const call = peer.call(id, stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+        console.log(stream);
     });
 });
