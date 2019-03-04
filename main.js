@@ -68,6 +68,7 @@ peer.on('call', call => {
         call.answer(stream);
         playStream('localStream', stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+        console.log(remoteStream);
     });
 });
 
