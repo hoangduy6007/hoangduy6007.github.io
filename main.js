@@ -33,7 +33,6 @@ function playStream(idVideoTag, stream) {
     const video = document.getElementById(idVideoTag);
     video.srcObject = stream;
     video.play();
-    console.log(idVideoTag);
 }
 //openStream()
 //.then(stream => playStream('localStream', stream));
