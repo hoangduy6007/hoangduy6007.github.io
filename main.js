@@ -33,6 +33,7 @@ function playStream(idVideoTag, stream) {
     const video = document.getElementById(idVideoTag);
     video.srcObject = stream;
     video.play();
+    console.log(idVideoTag);
 }
 //openStream()
 //.then(stream => playStream('localStream', stream));
@@ -80,6 +81,6 @@ $('#ulUser').on('click', 'li', function() {
         playStream('localStream', stream);
         const call = peer.call(id, stream);
         call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
-        console.log(stream);
+        
     });
 });
